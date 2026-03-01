@@ -33,7 +33,7 @@ bookingForm.addEventListener('submit', async function (e) {
     }
   }); 
 
-  <!-- Option A: Add onclick back directly -->
+  /* <!-- Option A: Add onclick back directly -->
 <button type="button" class="btn-primary"
   onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
   Book now
@@ -45,4 +45,24 @@ bookingForm.addEventListener('submit', async function (e) {
   document.getElementById('book-now-btn').addEventListener('click', () => {
     document.getElementById('booking').scrollIntoView({behavior:'smooth'});
   });
-</script>
+</script> */
+
+bookingForm.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const data = new FormData(bookingForm);
+
+  const res = await fetch(bookingForm.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  const result = await res.json(); // Parse the response body
+
+  if (res.ok) {
+    bookingForm.style.display = 'none';
+    successMessage.style.display = 'block';
+  } else {
+    alert(result.error || 'Something went wrong.');
+  }
+});
