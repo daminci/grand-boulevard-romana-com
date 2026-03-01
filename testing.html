@@ -1,0 +1,14 @@
+testing.html
+<!-- Option A: Add onclick back directly -->
+<button type="button" class="btn-primary"
+  onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+  Book now
+</button>
+
+<!-- Option B: Give it an id and fix the script -->
+<button type="button" id="book-now-btn" class="btn-primary">Book now</button>
+<script>
+  document.getElementById('book-now-btn').addEventListener('click', () => {
+    document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+  });
+</script>
