@@ -26,6 +26,15 @@
         "priceRange": "€€",
         "checkinTime": "15:00",
         "checkoutTime": "12:00",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday","Tuesday","Wednesday","Thursday",
+            "Friday","Saturday","Sunday"
+          ],
+          "opens": "15:00",
+          "closes": "23:59"
+        },
         "name": "Grand Boulevard Apartment – Piața Română",
         "description": "Modern 36 m² short-term rental apartment with direct street access in Piața Română, Bucharest. 1 minute from the metro, close to Calea Victoriei and the city center. Ideal for business travelers and couples.",
         "address": {
@@ -40,6 +49,11 @@
           "latitude": 44.448678330058826, 
           "longitude": 26.09423111289104
         },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "9.5",
+          "reviewCount": "59"
+        },
         "url": "https://grandboulevardromana.com/",
         "telephone": "+40-726-420-648",
         "amenityFeature": [
@@ -51,9 +65,95 @@
         ]
       }
       </script>
+  <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What time is check-in and check-out?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check-in is from 3:00 PM and check-out is by 12:00 PM. Early check-in or late check-out may be available on request."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does self check-in work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You'll receive a door code before your arrival via email or WhatsApp. No need to coordinate schedules — arrive whenever suits you."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a washing machine?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, a washing machine is available in the apartment for your use."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is parking available nearby?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no private parking, but paid street parking is available very close to the building. The Piața Română area is also well-connected by metro and public transport."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the apartment suitable for longer stays?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. The apartment is well-equipped for extended stays with a kitchenette, washing machine, fast Wi-Fi, and a comfortable workspace. Contact us for long-stay rates."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get an invoice for my stay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, invoices are available for business travelers. Please mention this when making your booking request."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are pets allowed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unfortunately, pets are not permitted in the apartment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the cancellation policy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cancellation is free up to 5 days before arrival. Bookings cancelled within 48 hours of check-in are non-refundable."
+              }
+            }
+          ]
+        }
+        </script>
 </head>
 
 <body>
+  <!-- GDPR Cookie Banner -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-content">
+      <p>
+        🍪 We use cookies to ensure basic site functionality and improve your experience.
+        We do not sell your data.
+        <a href="privacy.html" target="_blank">Privacy Policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button id="cookie-accept" onclick="acceptCookies()">Accept</button>
+        <button id="cookie-decline" onclick="declineCookies()">Decline</button>
+      </div>
+    </div>
+  </div>
   <header class="hero">
     <div class="hero-content">
       <h1>Grand Boulevard Apartment – Piața Română</h1>
@@ -63,13 +163,13 @@
       <p class="price">From €60 / night</p>
 
       <button type="button" id="book-now-btn" class="btn-primary">Book now</button>
-
       <p class="meta">1 minute to Metro Piața Română</p>
+      <p class="meta">
+        ✔ Best price guarantee &nbsp;✔ Instant confirmation &nbsp;✔ No service fees
+      </p>
     </div>
     <div class="hero-image">
-      <!-- <img src="images/icons/GBAPR-logo.png" alt="Grand Boulevard Apartment living area" /> -->
-      <!-- <img src="images/content/hero_image.webp" alt="Grand Boulevard Apartment living area" /> -->
-      <img src="images/content/main_gate.webp" alt="Outside of Grand Boulevard" />
+      <img src="images/content/hero_image.webp" alt="Grand Boulevard Apartment living area" />
     </div>
   </header>
 
@@ -86,30 +186,84 @@
         <span>Ideal for business travelers & couples</span>
       </div>
     </section>
-
+    <section class="section" id="reviews">
+      <h2>Guest reviews</h2>
+      <a href="https://www.booking.com/hotel/ro/apartment-on-grand-boulevard.en-gb.html?aid=356980&label=gog235jc-10CAsowAFCHGFwYXJ0bWVudC1vbi1ncmFuZC1ib3VsZXZhcmRICVgDaMABiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAKM_ZrNBsACAdICJDkyMGE4NjY1LWQwNGItNDNkYi1hZTZjLWQ0N2E3MDFjYWMwZtgCAeACAQ&sid=7858edc0d1c32cd8cdf5fe099bc27a27&age=0&checkin=2026-03-02&checkout=2026-03-03&dest_id=-1153951&dest_type=city&dist=0&group_adults=4&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1772535444&srpvid=e29c4d07b3110931&type=total&ucfs=1&#tab-reviews"
+        target="_blank" rel="nofollow">
+        ⭐ 9.5/10 on Booking(28)
+      </a>
+      <a href="https://www.airbnb.co.in/rooms/1179589047273701914?source_impression_id=p3_1772537325_P3PJvQ8eZV8WqoRO"
+        target="_blank" rel="nofollow">
+        ⭐ 4.81/5 on Airbnb(31)
+      </a>
+  
+      <div class="quotes">
+        <blockquote>
+          “Perfect location near Piața Română, very clean and easy self
+          check‑in.”
+        </blockquote>
+        <blockquote>
+          “Ideal for a business trip – fast Wi‑Fi and direct access from the
+          street.”
+        </blockquote>
+        <blockquote>
+          “Small but very well organized, close to everything in the city
+          center.”
+        </blockquote>
+      </div>
+    </section>
+    <!-- Trust Badges -->
+    <section class="section" id="trust-badges">
+      <div class="badges-wrap">
+        <div class="badge">
+          <span class="badge-icon">🏅</span>
+          <span class="badge-label">Airbnb Superhost</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">⭐</span>
+          <span class="badge-label">9.5 on Booking.com</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">✅</span>
+          <span class="badge-label">Verified Property</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">💬</span>
+          <span class="badge-label">100% Response Rate</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">🔑</span>
+          <span class="badge-label">Self Check-in</span>
+        </div>
+      </div>
+    </section>
     <section class="section" id="gallery">
       <h2>Photos</h2>
       <div class="grid">
-        <!-- <img src="images/content/main_gate.webp" loading="lazy" alt="Outside of Grand Boulevard" /> -->
-        <img src="images/content/outside_main.webp" loading="lazy" alt="Main entrance of Grand Boulevard" />
-        <!-- <img src="images/content/gang_main_door.webp" loading="lazy" alt="Main hallway of Grand Boulevard" /> -->
-        <img src="images/content/gang_beautiful_doors.webp" loading="lazy" alt="Beautiful hallway doors Grand Boulevard" />
-        <img src="images/content/main_gang_door_open_01.webp" loading="lazy" alt="Main hallway door open of Grand Boulevard" />
+        <img src="images/content/main_gate.webp" loading="lazy" alt="Main gate of Grand Boulevard" />
+        <img src="images/content/gang_beautiful_doors.webp" loading="lazy"
+          alt="Beautiful hallway doors Grand Boulevard" />
         <img src="images/content/apartment_door.webp" loading="lazy" alt="Apartment door of Grand Boulevard" />
-        <img src="images/content/kitchenette.webp" loading="lazy" alt="Kitchenette of Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/kitchenette_washer.webp" loading="lazy" alt="Dishwasher in the kitchen of Grand Boulevard " />
+        <img src="images/content/kitchenette.webp" loading="lazy"
+          alt="Kitchenette of Grand Boulevard Apartment Bucharest" />
+        <img src="images/content/kitchenette_washer.webp" loading="lazy"
+          alt="Dishwasher in the kitchen of Grand Boulevard " />
         <img src="images/content/hallway_ok.webp" loading="lazy" alt="Hallway of Grand Boulevard" />
-        <img src="images/content/Nice_living.webp" loading="lazy" alt="Living room of Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/living_ok.webp" loading="lazy" alt="Another living room of Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/living_extended_bed_stairs.webp" loading="lazy" alt="Living room extended bed of Grand Boulevard" />
+        <img src="images/content/living_ok.webp" loading="lazy"
+          alt="Another living room of Grand Boulevard Apartment Bucharest" />
+        <img src="images/content/living_extended_bed_stairs.webp" loading="lazy"
+          alt="Living room extended bed of Grand Boulevard" />
         <img src="images/content/livingroom_sofa.webp" loading="lazy" alt="Living room sofa of Grand Boulevard" />
-        <img src="images/content/bed_nice_light.webp" loading="lazy" alt="Nice bed of Grand Boulevard" />
+        <img src="images/content/bed_nice_light.webp" loading="lazy"
+          alt="Queen-size bed with soft lighting in central Bucharest apartment" />
         <img src="images/content/bed_bedroom_ok.webp" loading="lazy" alt="Bed in bedroom of Grand Boulevard" />
-        <img src="images/content/bed_lighten.webp" loading="lazy" alt="Just the bed of Grand Boulevard" />
-        <img src="images/content/bedroom_super_ok.webp" loading="lazy" alt="Super bed of Grand Boulevard" />
-        <img src="images/content/bath_door_make lighter.webp" loading="lazy" alt="Bathroom Grand Boulevard Apartment Bucharest" />
+        <img src="images/content/bed_lighten.webp" loading="lazy" alt="Bedroom with natural light, Grand Boulevard Apartment" />
+        <img src="images/content/bedroom_super_ok.webp" loading="lazy" alt="Master bedroom view, Grand Boulevard Apartment Bucharest" />
+        <img src="images/content/bath_door_make_lighter.webp" loading="lazy"
+          alt="Bathroom Grand Boulevard Apartment Bucharest" />
         <img src="images/content/toilet.webp" loading="lazy" alt="Toilet of Grand Boulevard" />
-        <img src="images/content/inside_bath_shower.webp" loading="lazy" alt="Inside bath and shower of Grand Boulevard" />
+        <img src="images/content/inside_bath_shower.webp" loading="lazy"
+          alt="Inside bath and shower of Grand Boulevard" />
       </div>
     </section>
 
@@ -219,22 +373,93 @@
       </div>
     </section>
 
-    <section class="section" id="reviews">
-      <h2>Guest reviews</h2>
-      <p class="rating">⭐ 9.5 on Booking • ⭐ 4.81 on Airbnb</p>
-      <div class="quotes">
-        <blockquote>
-          “Perfect location near Piața Română, very clean and easy self
-          check‑in.”
-        </blockquote>
-        <blockquote>
-          “Ideal for a business trip – fast Wi‑Fi and direct access from the
-          street.”
-        </blockquote>
-        <blockquote>
-          “Small but very well organized, close to everything in the city
-          center.”
-        </blockquote>
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <details>
+        <summary>What time is check-in and check-out?</summary>
+        <p>Check-in is from <strong>3:00 PM</strong> and check-out is by <strong>12:00 PM</strong>. Early check-in or
+          late check-out may be available depending on availability — just ask!</p>
+      </details>
+
+      <details>
+        <summary>How does self check-in work?</summary>
+        <p>You'll receive a door code before your arrival via email or WhatsApp. No need to coordinate schedules —
+          arrive whenever suits you.</p>
+      </details>
+
+      <details>
+        <summary>Is there a washing machine?</summary>
+        <p>Yes, a washing machine is available in the apartment for your use.</p>
+      </details>
+
+      <details>
+        <summary>Is parking available nearby?</summary>
+        <p>There is no private parking, but paid street parking is available very close to the building. The Piața
+          Română area is also well-connected by metro and public transport.</p>
+      </details>
+
+      <details>
+        <summary>Is the apartment suitable for longer stays?</summary>
+        <p>Absolutely. The apartment is well-equipped for extended stays with a kitchenette, washing machine, fast
+          Wi‑Fi, and a comfortable workspace. Contact us for long-stay rates.</p>
+      </details>
+
+      <details>
+        <summary>Can I get an invoice for my stay?</summary>
+        <p>Yes, invoices are available for business travelers. Please mention this when making your booking request.</p>
+      </details>
+
+      <details>
+        <summary>Are pets allowed?</summary>
+        <p>Unfortunately, pets are not permitted in the apartment.</p>
+      </details>
+
+      <details>
+        <summary>What is the cancellation policy?</summary>
+        <p>Cancellation is free up to <strong>5 days before arrival</strong>. Bookings cancelled within 48 hours of
+          check-in are non-refundable.</p>
+      </details>
+    </section>
+
+    <!-- Why Book Direct Section -->
+    <section id="why-direct" class="section">
+      <h2>Why Book Direct?</h2>
+      <p class="why-subtitle">Skip the middleman. Book with us and get more for less. Book Direct & Save 12–18%</p>
+
+      <div class="compare-table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>🏨 Platforms<br><span>Airbnb / Booking</span></th>
+              <th class="highlight-col">✅ Direct<br><span>This website</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Service Fees</td>
+              <td class="bad">12–18%</td>
+              <td class="good highlight-col">€0</td>
+            </tr>
+            <tr>
+              <td>Support</td>
+              <td class="bad">Platform chatbot</td>
+              <td class="good highlight-col">Direct owner</td>
+            </tr>
+            <tr>
+              <td>Flexibility</td>
+              <td class="bad">Limited</td>
+              <td class="good highlight-col">Flexible</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td class="bad">Higher</td>
+              <td class="good highlight-col">Lowest guaranteed</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -270,6 +495,14 @@
           <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="gdpr-check">
+              <input type="checkbox" required name="gdpr">
+              I agree to my data being used to process this booking request, in accordance with the
+              <a href="privacy.html" target="_blank">Privacy Policy</a>.
+            </label>
           </div>
 
           <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem">
@@ -418,6 +651,23 @@
         document.getElementById("terms-modal").style.display = "none";
       }
     });
+  </script>
+  <script>
+    // Show banner only if no choice made yet
+    if (localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+      // Optionally disable any analytics here
+    }
   </script>
 </body>
 

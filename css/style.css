@@ -192,18 +192,8 @@ header.hero {
 .actions-row {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 0.5rem; */
   gap: 1rem;
   margin-top: 0.75rem;
-}
-
-/* Map */
-
-.map-wrapper {
-  margin-top: 0.75rem;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
 }
 
 /* Reviews */
@@ -409,4 +399,256 @@ header.hero {
 .terms-body h4 {
   margin: 1.25rem 0 0.25rem;
   font-size: 1rem;
+}
+
+/* FAQ Section */
+#faq {
+  /* max-width: 720px;
+  margin: 60px auto; */
+  padding: 0 20px;
+}
+
+#faq h2 {
+  margin-bottom: 24px;
+}
+
+#faq details {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 0;
+}
+
+#faq details:first-of-type {
+  border-top: 1px solid #e0e0e0;
+}
+
+#faq summary {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#faq summary::-webkit-details-marker {
+  display: none;
+}
+
+#faq summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #888;
+  transition: transform 0.2s ease;
+}
+
+#faq details[open] summary::after {
+  content: "−";
+}
+
+#faq details p {
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* .hero-reassurance {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #f0f0f0;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+} */
+
+/* Why Book Direct */
+#why-direct {
+  /* max-width: 720px;
+  margin: 60px auto; */
+  padding: 0 20px;
+  text-align: center;
+}
+
+.why-subtitle {
+  color: #666;
+  margin-bottom: 28px;
+  font-size: 1rem;
+}
+
+.compare-table {
+  overflow-x: auto;
+}
+
+.compare-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.compare-table th {
+  padding: 14px 16px;
+  background: #f5f5f5;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.compare-table th span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: #888;
+  margin-top: 3px;
+}
+
+.compare-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.compare-table tr td:first-child {
+  font-weight: 600;
+  text-align: left;
+  color: #222;
+}
+
+/* Highlighted "Direct" column */
+.highlight-col {
+  background: #f0faf4;
+  color: #1a7a3f;
+  font-weight: 600;
+}
+
+.good {
+  color: #1a7a3f;
+}
+
+.bad {
+  color: #999;
+}
+
+/* Hover rows */
+.compare-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+/* Trust Badges */
+#trust-badges {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.badge-icon {
+  font-size: 1.1rem;
+}
+
+/* Cookie Banner */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #f0f0f0;
+  padding: 16px 24px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+}
+
+.cookie-content {
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.cookie-content a {
+  color: #7ecfa0;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+#cookie-accept {
+  background: #1a7a3f;
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#cookie-decline {
+  background: transparent;
+  color: #aaa;
+  border: 1.5px solid #555;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+#cookie-accept:hover { background: #155f32; }
+#cookie-decline:hover { color: #fff; border-color: #aaa; }
+
+.gdpr-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #666;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.gdpr-check input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.gdpr-check a {
+  color: #1a7a3f;
 }
