@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Grand Boulevard Apartment – Piața Română | Direct Booking</title>
+  <title>“Grand Boulevard Apartment Piața Romană – Direct Booking, 36m², Central Bucharest”</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
     content="Modern 36 m² short-term rental apartment with direct street access in Piața Română, Bucharest. 1 minute from the metro, perfect for business travelers and couples. Book direct for the best price." />
@@ -133,6 +133,22 @@
                 "@type": "Answer",
                 "text": "Cancellation is free up to 5 days before arrival. Bookings cancelled within 48 hours of check-in are non-refundable."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the apartment quiet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The apartment is located on a calm side street just off Calea Victoriei, away from main traffic. The building has thick walls typical of Bucharest's interwar architecture, and the windows provide good sound insulation. Quiet hours are observed from 10:00 PM to 8:00 AM."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer airport transfer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We don't offer transfers directly, but getting from Henri Coandă Airport is easy. The Express 783 bus runs every 15–30 minutes and stops at Piața Română, a 2-minute walk from the apartment (around €1). Taxis and Uber/Bolt typically cost €15–25 depending on traffic."
+              }
             }
           ]
         }
@@ -140,6 +156,19 @@
 </head>
 
 <body>
+  <!-- Sticky Header -->
+  <header id="sticky-header">
+    <div class="sticky-inner">
+      <span class="sticky-logo">Grand Boulevard</span>
+      <nav class="sticky-nav">
+        <a href="#photos">Photos</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#neighborhood">Area</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#book" class="sticky-cta">Book Now</a>
+    </div>
+  </header>
   <!-- GDPR Cookie Banner -->
   <div id="cookie-banner" role="dialog" aria-label="Cookie consent">
     <div class="cookie-content">
@@ -196,7 +225,7 @@
         target="_blank" rel="nofollow">
         ⭐ 4.81/5 on Airbnb(31)
       </a>
-  
+
       <div class="quotes">
         <blockquote>
           “Perfect location near Piața Română, very clean and easy self
@@ -237,33 +266,45 @@
         </div>
       </div>
     </section>
-    <section class="section" id="gallery">
+    <!-- Photos Slider -->
+    <section id="photos">
       <h2>Photos</h2>
-      <div class="grid">
-        <img src="images/content/main_gate.webp" loading="lazy" alt="Main gate of Grand Boulevard" />
-        <img src="images/content/gang_beautiful_doors.webp" loading="lazy"
-          alt="Beautiful hallway doors Grand Boulevard" />
-        <img src="images/content/apartment_door.webp" loading="lazy" alt="Apartment door of Grand Boulevard" />
-        <img src="images/content/kitchenette.webp" loading="lazy"
-          alt="Kitchenette of Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/kitchenette_washer.webp" loading="lazy"
-          alt="Dishwasher in the kitchen of Grand Boulevard " />
-        <img src="images/content/hallway_ok.webp" loading="lazy" alt="Hallway of Grand Boulevard" />
-        <img src="images/content/living_ok.webp" loading="lazy"
-          alt="Another living room of Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/living_extended_bed_stairs.webp" loading="lazy"
-          alt="Living room extended bed of Grand Boulevard" />
-        <img src="images/content/livingroom_sofa.webp" loading="lazy" alt="Living room sofa of Grand Boulevard" />
-        <img src="images/content/bed_nice_light.webp" loading="lazy"
-          alt="Queen-size bed with soft lighting in central Bucharest apartment" />
-        <img src="images/content/bed_bedroom_ok.webp" loading="lazy" alt="Bed in bedroom of Grand Boulevard" />
-        <img src="images/content/bed_lighten.webp" loading="lazy" alt="Bedroom with natural light, Grand Boulevard Apartment" />
-        <img src="images/content/bedroom_super_ok.webp" loading="lazy" alt="Master bedroom view, Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/bath_door_make_lighter.webp" loading="lazy"
-          alt="Bathroom Grand Boulevard Apartment Bucharest" />
-        <img src="images/content/toilet.webp" loading="lazy" alt="Toilet of Grand Boulevard" />
-        <img src="images/content/inside_bath_shower.webp" loading="lazy"
-          alt="Inside bath and shower of Grand Boulevard" />
+      <div class="slider-wrap">
+        <div class="slider-track" id="sliderTrack">
+
+          <!-- 1. LIVING -->
+          <img src="images/content/Nice_living.webp" alt="Living room – Grand Boulevard Apartment">
+          <img src="images/content/living_ok.webp" alt="Living room view">
+          <img src="images/content/livingroom_sofa.webp" alt="Comfortable sofa">
+
+          <!-- 2. BEDROOM -->
+          <img src="images/content/bedroom_super_ok.webp" alt="Bedroom overview">
+          <img src="images/content/bed_nice_light.webp" alt="Bed with warm lighting">
+
+          <!-- 3. KITCHENETTE -->
+          <img src="images/content/kitchenette.webp" alt="Kitchenette">
+          <img src="images/content/kitchenette_washer.webp" alt="Washing machine">
+
+          <!-- 4. BATHROOM -->
+          <img src="images/content/inside_bath_shower.webp" alt="Bath and shower">
+
+          <!-- 5. EXTERIOR / INTRARE -->
+          <img src="images/content/outside_main.webp" alt="Building entrance">
+          <img src="images/content/main_gang_door_open_01.webp" alt="Main hallway door">
+          <img src="images/content/gang_beautiful_doors.webp" alt="Hallway doors">
+          <img src="images/content/apartment_door.webp" alt="Apartment door">
+
+        </div>
+
+        <!-- Controls -->
+        <button class="slider-btn prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
+        <button class="slider-btn next" id="nextBtn" aria-label="Next photo">&#8594;</button>
+
+        <!-- Dots -->
+        <div class="slider-dots" id="sliderDots"></div>
+
+        <!-- Counter -->
+        <div class="slider-counter" id="sliderCounter">1 / 18</div>
       </div>
     </section>
 
@@ -280,70 +321,97 @@
         <li>Street‑level entrance – easy late‑night access</li>
       </ul>
     </section>
-    <section class="section" id="neighborhood">
+
+    <!-- The Neighborhood -->
+    <section id="neighborhood">
       <h2>The Neighborhood</h2>
-      <p>
-        Piața Română is the heart of Bucharest’s creative and student life,
-        perfectly positioned between the upscale Dorobanți area and the
-        historic Old Town.
-      </p>
+      <p class="neighborhood-intro">Piața Română este inima creativă și studențească a Bucureștiului, perfect
+        poziționată între Dorobanți și Centrul Vechi.</p>
 
-      <div class="neighborhood-grid">
-        <div class="guide-item">
-          <h3>☕ Coffee & Brunch</h3>
-          <ul>
-            <li>
-              <strong>Camera din Față</strong> – A quirky, vintage tea and
-              coffee shop just steps away.
-            </li>
-            <li>
-              <strong>Trofic</strong> – Minimalist spot known for some of the
-              best specialty coffee and brunch in the city.
-            </li>
-            <li>
-              <strong>Ever After</strong> – A beautiful "Instagrammable"
-              garden for cocktails and comfort food.
-            </li>
-          </ul>
-        </div>
-
-        <div class="guide-item">
-          <h3>🍴 Dining</h3>
-          <ul>
-            <li>
-              <strong>La Placinte</strong> – Famous for traditional Moldovan
-              pies and hearty local dishes.
-            </li>
-            <li>
-              <strong>Caju by Joseph Hadad</strong> – High-end casual dining
-              with North African influences.
-            </li>
-            <li>
-              <strong>Simigeria Luca</strong> – For a quick, classic Romanian
-              "covrig" (pretzel) on the go.
-            </li>
-          </ul>
-        </div>
-
-        <div class="guide-item">
-          <h3>🏛️ Culture & Sights</h3>
-          <ul>
-            <li>
-              <strong>Romanian Athenaeum</strong> – A 10-minute walk to the
-              city's most iconic concert hall.
-            </li>
-            <li>
-              <strong>Calea Victoriei</strong> – Bucharest's oldest boulevard,
-              perfect for weekend strolls.
-            </li>
-            <li>
-              <strong>Grădina Icoanei</strong> – A peaceful, hidden park just
-              a few blocks away.
-            </li>
-          </ul>
-        </div>
+      <!-- Hartă statică -->
+      <div class="neighborhood-map">
+        <a href="https://maps.google.com/?q=44.4501,26.09" target="_blank" rel="noopener">
+          <img
+            src="https://maps.googleapis.com/maps/api/staticmap?center=44.4501,26.09&zoom=15&size=680x320&maptype=roadmap&markers=color:green%7C44.4501,26.09&style=feature:poi|visibility:simplified"
+            alt="Harta cartierului Piața Română" style="width:100%; border-radius:12px; display:block;">
+        </a>
       </div>
+
+      <div class="map-links">
+        <a href="https://maps.google.com/?q=44.4501,26.0900" target="_blank" rel="noopener">📍 Open in Google Maps</a>
+        <a href="https://maps.google.com/?daddr=44.4501,26.0900" target="_blank" rel="noopener">🧭 Navigate here</a>
+      </div>
+
+      <!-- ☕ Coffee & Brunch -->
+      <h3>☕ Coffee & Brunch</h3>
+      <ul class="neighborhood-list">
+        <li>
+          <strong>Camera din Față</strong>
+          <span class="distance">~3 min walk</span>
+          <span class="rating">⭐ 4.8</span>
+          <p>Ceainărie vintage cu atmosferă unică și o selecție impresionantă de ceaiuri și cafele specialty.</p>
+        </li>
+        <li>
+          <strong>Trofic</strong>
+          <span class="distance">~6 min walk</span>
+          <span class="rating">⭐ 4.7</span>
+          <p>Spot minimalist, renumit pentru una dintre cele mai bune cafele specialty și brunch din oraș.</p>
+        </li>
+        <li>
+          <strong>Ever After</strong>
+          <span class="distance">~4 min walk</span>
+          <span class="rating">⭐ 4.5</span>
+          <p>Grădină "Instagrammabilă" cu cocktailuri și comfort food, deschis de la 9 AM până la miezul nopții.</p>
+        </li>
+      </ul>
+
+      <!-- 🍴 Dining -->
+      <h3>🍴 Dining</h3>
+      <ul class="neighborhood-list">
+        <li>
+          <strong>La Plăcinte</strong>
+          <span class="distance">~12 min walk</span>
+          <span class="rating">⭐ 4.2</span>
+          <p>Celebru pentru plăcintele moldovenești tradiționale și mâncărurile românești consistente.</p>
+        </li>
+        <li>
+          <strong>Caju by Joseph Hadad</strong>
+          <span class="distance">~5 min walk</span>
+          <span class="rating">⭐ 4.4</span>
+          <p>Dining casual de înaltă clasă cu influențe nord-africane. Rezervare recomandată.</p>
+        </li>
+        <li>
+          <strong>Simigeria Luca</strong>
+          <span class="distance">~8 min walk</span>
+          <span class="rating">⭐ 4.4</span>
+          <p>Covrigărie legendară — snack-ul perfect de luat pe drum, deschisă de la 6 AM.</p>
+        </li>
+      </ul>
+
+      <!-- 🏛️ Cultură & Atracții -->
+      <h3>🏛️ Cultură & Atracții</h3>
+      <ul class="neighborhood-list">
+        <li>
+          <strong>Ateneul Român</strong>
+          <span class="distance">~10 min walk</span>
+          <span class="rating">⭐ 4.8</span>
+          <p>Cea mai iconică sală de concerte din București — spectacolul arhitectural merită vizitat chiar și fără
+            bilet.</p>
+        </li>
+        <li>
+          <strong>Calea Victoriei</strong>
+          <span class="distance">~5 min walk</span>
+          <p>Cel mai vechi bulevard al Bucureștiului, perfect pentru o plimbare de weekend.</p>
+        </li>
+        <li>
+          <strong>Grădina Icoanei</strong>
+          <span class="distance">~8 min walk</span>
+          <span class="rating">⭐ 4.4</span>
+          <p>Un parc liniștit și ascuns, deschis 24/7 — ideal pentru o pauză în mijlocul orașului.</p>
+        </li>
+      </ul>
     </section>
+
     <section class="section" id="location">
       <h2>Location – Piața Română, Bucharest</h2>
       <p>Stay in the heart of Bucharest, just steps from Metro Piața Română and Calea Victoriei.</p>
@@ -421,6 +489,20 @@
         <p>Cancellation is free up to <strong>5 days before arrival</strong>. Bookings cancelled within 48 hours of
           check-in are non-refundable.</p>
       </details>
+      <details>
+        <summary>Is the apartment quiet?</summary>
+        <p>The apartment is located on a calm side street just off Calea Victoriei, away from main traffic. The building
+          has thick walls typical of Bucharest's interwar architecture, and the windows provide good sound insulation.
+          Quiet hours in the building are observed from 10:00 PM to 8:00 AM.</p>
+      </details>
+
+      <details>
+        <summary>Do you offer airport transfer?</summary>
+        <p>We don't offer transfers directly, but getting from Henri Coandă Airport to the apartment is easy and
+          affordable. The <strong>Express 783 bus</strong> runs every 15–30 min and stops at Piața Română — just a
+          2-minute walk from the door (around €1). Taxis and Uber/Bolt are also widely available and typically cost
+          €15–25 depending on traffic.</p>
+      </details>
     </section>
 
     <!-- Why Book Direct Section -->
@@ -463,6 +545,33 @@
       </div>
     </section>
 
+    <!-- About the Host -->
+    <section id="host">
+      <div class="host-card">
+        <div class="host-avatar">
+          <img src="images/host/dragos.jpg" alt="Dragos – your host">
+        </div>
+        <div class="host-info">
+          <p class="host-label">Your host</p>
+          <h2 class="host-name">Dragos</h2>
+          <div class="host-badges">
+            <span>🏅 Superhost</span>
+            <span>⚡ Fast response</span>
+            <span>🏠 3 years hosting</span>
+          </div>
+          <p class="host-bio">
+            I'm a Bucharest local and I love sharing this city with travelers.
+            The apartment is my own space — carefully maintained and personally
+            prepared before every stay. I'm always available by phone or WhatsApp
+            if you need anything, from restaurant tips to airport directions.
+          </p>
+          <div class="host-contact">
+            <a href="https://wa.me/40726420648" target="_blank" rel="noopener">💬 Message me on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="booking">
       <h2>Book direct</h2>
       <p>
@@ -476,25 +585,42 @@
           <div class="form-group-row">
             <div class="form-group">
               <label for="checkin">Check-in</label>
-              <input type="date" id="checkin" name="checkin" required />
+              <div class="field-wrap">
+                <input type="date" name="checkin" id="checkin" required>
+                <span class="field-icon"></span>
+                <span class="field-error" id="checkin-error"></span>
+              </div>
             </div>
             <div class="form-group">
               <label for="checkout">Check-out</label>
-              <input type="date" id="checkout" name="checkout" required />
+              <div class="field-wrap">
+                <input type="date" name="checkout" id="checkout" required>
+                <span class="field-icon"></span>
+                <span class="field-error" id="checkout-error"></span>
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="guests">Guests</label>
-            <select id="guests" name="guests">
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-            </select>
+            <div class="field-wrap">
+              <select name="guests" id="guests" required>
+                <option value="">Guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+              </select>
+              <span class="field-icon"></span>
+              <span class="field-error" id="guests-error"></span>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <div class="field-wrap">
+              <input type="email" name="email" id="email" placeholder="Email Address" required>
+              <span class="field-icon"></span>
+              <span class="field-error" id="email-error"></span>
+            </div>
           </div>
 
           <div class="form-group">
@@ -508,6 +634,7 @@
           <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem">
             Check Availability
           </button>
+          <p class="response-time">⚡ Average response time: under 1 hour</p>
           <p class="subtitle" style="text-align: center; margin-top: 0.5rem; font-size: 0.75rem">
             No payment required yet. We will contact you to confirm.
           </p>
@@ -668,6 +795,144 @@
       document.getElementById('cookie-banner').style.display = 'none';
       // Optionally disable any analytics here
     }
+  </script>
+
+  <script>
+    const track = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsWrap = document.getElementById('sliderDots');
+    const counter = document.getElementById('sliderCounter');
+
+    let current = 0;
+    const total = track.children.length; // acum detectează automat 12
+
+    // Build dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, total - 1));
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current));
+      counter.textContent = `${current + 1} / ${total}`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // Touch / swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    // Mouse drag support
+    let dragStart = 0, isDragging = false;
+    track.addEventListener('mousedown', e => { dragStart = e.clientX; isDragging = true; });
+    track.addEventListener('mouseup', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diff = dragStart - e.clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    goTo(0); // init
+  </script>
+
+  <script>
+    // Validare în timp real
+    today = new Date().toISOString().split('T')[0];
+
+    function validateField(input, errorId, validator) {
+      const error = document.getElementById(errorId);
+      const { valid, message } = validator(input.value);
+      input.classList.toggle('valid', valid);
+      input.classList.toggle('invalid', !valid && input.value !== '');
+      if (error) error.textContent = (!valid && input.value !== '') ? message : '';
+
+      // icon visibility
+      const icon = input.nextElementSibling;
+      if (icon) icon.style.opacity = input.value !== '' ? '1' : '0';
+    }
+
+    // Check-in: nu poate fi în trecut
+    document.getElementById('checkin').addEventListener('change', function () {
+      validateField(this, 'checkin-error', val => ({
+        valid: val >= today,
+        message: 'Check-in cannot be in the past.'
+      }));
+      // re-validează checkout dacă e deja completat
+      const checkout = document.getElementById('checkout');
+      if (checkout.value) checkout.dispatchEvent(new Event('change'));
+    });
+
+    // Check-out: trebuie după check-in
+    document.getElementById('checkout').addEventListener('change', function () {
+      const checkin = document.getElementById('checkin').value;
+      validateField(this, 'checkout-error', val => ({
+        valid: val > checkin,
+        message: 'Check-out must be after check-in.'
+      }));
+    });
+
+    // Guests
+    document.getElementById('guests').addEventListener('change', function () {
+      validateField(this, 'guests-error', val => ({
+        valid: val !== '',
+        message: 'Please select number of guests.'
+      }));
+    });
+
+    // Email
+    document.getElementById('email').addEventListener('input', function () {
+      validateField(this, 'email-error', val => ({
+        valid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+        message: 'Please enter a valid email address.'
+      }));
+    });
+  </script>
+
+  <script>
+    const stickyHeader = document.getElementById('sticky-header');
+    const hero = document.querySelector('h1') || document.body.firstElementChild;
+
+    // Apare după ce utilizatorul scrollează peste hero
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        stickyHeader.classList.toggle('visible', !entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(hero);
+
+    // Scroll lin pentru toate link-urile anchor
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = 64; // înălțimea header-ului
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
   </script>
 </body>
 
