@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>“Grand Boulevard Apartment Piața Romană – Direct Booking, 36m², Central Bucharest”</title>
+  <title>Grand Boulevard Apartment Piața Romană – Direct Booking, 36m², Central Bucharest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
     content="Modern 36 m² short-term rental apartment with direct street access in Piața Română, Bucharest. 1 minute from the metro, perfect for business travelers and couples. Book direct for the best price." />
@@ -49,6 +49,7 @@
           "latitude": 44.448678330058826, 
           "longitude": 26.09423111289104
         },
+        /* UPDATE MANUALLY: sync ratingValue and reviewCount with Booking.com / Airbnb when ratings change */
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "9.5",
@@ -207,7 +208,6 @@
       </p>
       <p class="hero-meta">36 m² &nbsp;·&nbsp; 1 Bedroom &nbsp;·&nbsp; City‑center Bucharest</p>
       <a href="#book" class="hero-cta">Book Now — From €60 / night</a>
-      <!-- <button type="button" id="book-now-btn" class="btn-primary">Book Now — From €60 / night</button> -->
       <p class="hero-reassurance">✔ Best price guarantee &nbsp;✔ Instant confirmation &nbsp;✔ No service fees</p>
     </div>
   </section>
@@ -220,6 +220,7 @@
       <div class="chips">
         <span>36 m²</span>
         <span>1 bedroom</span>
+        <span>Max 2 guests</span>
         <span>Direct street access</span>
         <span>Fast Wi‑Fi</span>
         <span>Air conditioning</span>
@@ -779,7 +780,6 @@
     </section>
 
     <!-- Book direct -->
-    <!-- I will change this to book instead of booking-->
     <section class="section" id="book">
       <h2>Book direct</h2>
       <p>
@@ -936,11 +936,6 @@
   </div>
 
   <script>
-    /* document.getElementById('book-now-btn').addEventListener('click', () => {
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-    }); */
-    //debugger;
-    //on 03/19/2026 changed from booking to book
     document.getElementsByClassName('sticky-btn')[0].addEventListener('click', () => {
       document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
     });
@@ -992,6 +987,9 @@
 
     bookingForm.addEventListener('submit', async function (e) {
       e.preventDefault();
+      const submitBtn = bookingForm.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
       const data = new FormData(bookingForm);
 
       try {
@@ -1001,17 +999,20 @@
           headers: { 'Accept': 'application/json' }
         });
 
-        const result = await res.json(); // Parse the response body
+        const result = await res.json();
 
         if (res.ok) {
           bookingForm.style.display = 'none';
           successMessage.style.display = 'block';
         } else {
-          // This will tell you EXACTLY what Formspree doesn't like
           alert(result.error || 'Something went wrong.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Check Availability';
         }
       } catch (error) {
         alert('Network error. Please check your connection.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Check Availability';
       }
     });
 
@@ -1072,7 +1073,7 @@
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
     document.addEventListener('keydown', e => {
-      if (lightbox.classList.contains('active')) return;
+      if (document.getElementById('lightbox').classList.contains('active')) return;
       if (e.key === 'ArrowLeft') goTo(current - 1);
       if (e.key === 'ArrowRight') goTo(current + 1);
     });
@@ -1160,12 +1161,13 @@
     // Validare în timp real
     const today1 = getLocalDateString();
 
-    function validateField(input, errorId, validator) {
+    function validateField(input, errorId, validator, force = false) {
       const error = document.getElementById(errorId);
       const { valid, message } = validator(input.value);
+      const showError = !valid && (input.value !== '' || force);
       input.classList.toggle('valid', valid);
-      input.classList.toggle('invalid', !valid && input.value !== '');
-      if (error) error.textContent = (!valid && input.value !== '') ? message : '';
+      input.classList.toggle('invalid', showError);
+      if (error) error.textContent = showError ? message : '';
 
       // icon visibility
       const icon = input.nextElementSibling;
@@ -1173,40 +1175,49 @@
     }
 
     // Check-in: nu poate fi în trecut
-    document.getElementById('checkin').addEventListener('change', function () {
-      validateField(this, 'checkin-error', val => ({
-        valid: val >= today1,
+    function validateCheckin(force = false) {
+      validateField(document.getElementById('checkin'), 'checkin-error', val => ({
+        valid: val >= today,
         message: 'Check-in cannot be in the past.'
-      }));
+      }), force);
       // re-validează checkout dacă e deja completat
       const checkout = document.getElementById('checkout');
-      if (checkout.value) checkout.dispatchEvent(new Event('change'));
-    });
+      if (checkout.value) validateCheckout();
+    }
 
     // Check-out: trebuie după check-in
-    document.getElementById('checkout').addEventListener('change', function () {
+    function validateCheckout(force = false) {
       const checkin = document.getElementById('checkin').value;
-      validateField(this, 'checkout-error', val => ({
+      validateField(document.getElementById('checkout'), 'checkout-error', val => ({
         valid: val > checkin,
         message: 'Check-out must be after check-in.'
-      }));
-    });
+      }), force);
+    }
+
+    document.getElementById('checkin').addEventListener('change', () => validateCheckin());
+    document.getElementById('checkin').addEventListener('blur', () => validateCheckin(true));
+    document.getElementById('checkout').addEventListener('change', () => validateCheckout());
+    document.getElementById('checkout').addEventListener('blur', () => validateCheckout(true));
 
     // Guests
-    document.getElementById('guests').addEventListener('change', function () {
-      validateField(this, 'guests-error', val => ({
+    function validateGuests(force = false) {
+      validateField(document.getElementById('guests'), 'guests-error', val => ({
         valid: val !== '',
         message: 'Please select number of guests.'
-      }));
-    });
+      }), force);
+    }
+    document.getElementById('guests').addEventListener('change', () => validateGuests());
+    document.getElementById('guests').addEventListener('blur', () => validateGuests(true));
 
     // Email
-    document.getElementById('email').addEventListener('input', function () {
-      validateField(this, 'email-error', val => ({
+    function validateEmail(force = false) {
+      validateField(document.getElementById('email'), 'email-error', val => ({
         valid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
         message: 'Please enter a valid email address.'
-      }));
-    });
+      }), force);
+    }
+    document.getElementById('email').addEventListener('input', () => validateEmail());
+    document.getElementById('email').addEventListener('blur', () => validateEmail(true));
   </script>
 
   <script>
