@@ -779,7 +779,8 @@
     </section>
 
     <!-- Book direct -->
-    <section class="section" id="booking">
+    <!-- I will change this to book instead of booking-->
+    <section class="section" id="book">
       <h2>Book direct</h2>
       <p>
         Best price guaranteed when you book directly on this website. No extra
@@ -939,14 +940,15 @@
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
     }); */
     //debugger;
+    //on 03/19/2026 changed from booking to book
     document.getElementsByClassName('sticky-btn')[0].addEventListener('click', () => {
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
     });
     document.getElementsByClassName('sticky-cta')[0].addEventListener('click', () => {
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
     });
     document.getElementsByClassName('hero-cta')[0].addEventListener('click', () => {
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
     });
 
 
@@ -954,8 +956,20 @@
     const checkinInput = document.getElementById("checkin");
     const checkoutInput = document.getElementById("checkout");
 
+    function getLocalDateString(date = new Date()) {
+      const timezoneOffsetMs = date.getTimezoneOffset() * 60 * 1000;
+      return new Date(date.getTime() - timezoneOffsetMs).toISOString().split("T")[0];
+    }
+
+    function addDaysToDateString(dateString, days) {
+      const [year, month, day] = dateString.split("-").map(Number);
+      const localDate = new Date(year, month - 1, day);
+      localDate.setDate(localDate.getDate() + days);
+      return getLocalDateString(localDate);
+    }
+
     // 1. Set the minimum check-in date to today
-    const today = new Date().toISOString().split("T")[0];
+    const today = getLocalDateString();
     checkinInput.setAttribute("min", today);
 
     // 2. Update checkout "min" whenever check-in changes
@@ -963,10 +977,7 @@
       const selectedDate = checkinInput.value;
       if (selectedDate) {
         // The checkout must be at least one day after check-in
-        const nextDay = new Date(selectedDate);
-        nextDay.setDate(nextDay.getDate() + 1);
-
-        const minCheckout = nextDay.toISOString().split("T")[0];
+        const minCheckout = addDaysToDateString(selectedDate, 1);
         checkoutInput.setAttribute("min", minCheckout);
 
         // If checkout is now earlier than the new min, reset it
@@ -1147,7 +1158,7 @@
 
   <script>
     // Validare în timp real
-    today1 = new Date().toISOString().split('T')[0]; // this was defined as a constant
+    const today1 = getLocalDateString();
 
     function validateField(input, errorId, validator) {
       const error = document.getElementById(errorId);
