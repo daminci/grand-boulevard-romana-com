@@ -254,6 +254,12 @@ header.hero {
   gap: 1rem;
 }
 
+@media (max-width: 480px) {
+  .form-group-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -275,12 +281,12 @@ header.hero {
   font-size: 0.9rem;
 }
 
-.form-group select:focus {
+.form-group select:focus-visible {
   outline: 2px solid var(--accent);
   border-color: transparent;
 }
 
-.form-group input:focus {
+.form-group input:focus-visible {
   outline: 2px solid var(--accent);
   border-color: transparent;
 }
@@ -651,12 +657,6 @@ header.hero {
 }
 
 /* Photo Slider */
-#photos {
-  max-width: 720px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
 .slider-wrap {
   position: relative;
   overflow: hidden;
@@ -750,26 +750,6 @@ header.hero {
 }
 
 /* Neighborhood Section */
-#neighborhood {
-  max-width: 720px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.neighborhood-intro {
-  color: #555;
-  margin-bottom: 24px;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.neighborhood-map {
-  margin: 24px 0 12px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-}
-
 .response-time {
   font-size: 0.82rem;
   color: #888;
@@ -813,8 +793,10 @@ header.hero {
   transition: opacity 0.2s;
 }
 
-.field-wrap input.valid ~ .field-icon::after   { content: "✔"; color: #1a7a3f; opacity: 1; }
-.field-wrap input.invalid ~ .field-icon::after { content: "✖"; color: #d0342c; opacity: 1; }
+.field-wrap input.valid ~ .field-icon::after,
+.field-wrap select.valid ~ .field-icon::after   { content: "✔"; color: #1a7a3f; opacity: 1; }
+.field-wrap input.invalid ~ .field-icon::after,
+.field-wrap select.invalid ~ .field-icon::after { content: "✖"; color: #d0342c; opacity: 1; }
 
 .field-error {
   font-size: 0.75rem;
@@ -974,6 +956,7 @@ header.hero {
 }
 
 .sticky-nav a:hover { color: #111; }
+.sticky-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 .sticky-cta {
   flex-shrink: 0;
@@ -989,6 +972,7 @@ header.hero {
 }
 
 .sticky-cta:hover { background: #155f32; }
+.sticky-cta:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 /* Ascunde nav pe mobil, păstrează doar butonul */
 @media (max-width: 560px) {
@@ -996,14 +980,6 @@ header.hero {
   .sticky-logo { flex: 1; }
 }
 
-.hero-tagline {
-  font-size: 1.1rem;
-  color: #f0f0f0;
-  max-width: 520px;
-  margin: 12px auto 24px;
-  line-height: 1.6;
-  opacity: 0.92;
-}
 
 /* Neighborhood Section */
 #neighborhood {
@@ -1172,6 +1148,7 @@ header.hero {
 }
 
 .sticky-btn:hover { background: #155f32; }
+.sticky-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 /* Apare doar pe mobile */
 @media (max-width: 768px) {
@@ -1323,6 +1300,7 @@ header.hero {
 }
 
 .lb-close:hover { opacity: 1; }
+.lb-close:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
 
 .lb-btn {
   position: fixed;
@@ -1344,6 +1322,7 @@ header.hero {
 }
 
 .lb-btn:hover { background: rgba(255,255,255,0.3); }
+.lb-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 2px; }
 .lb-prev { left: 16px; }
 .lb-next { right: 16px; }
 
@@ -1506,6 +1485,7 @@ header.hero {
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
+.hero-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 999px; }
 .hero-cta:hover {
   background: #155f32;
   transform: translateY(-1px);
@@ -1592,4 +1572,8 @@ header.hero {
   margin: 60px auto;
   padding: 0 24px;
   line-height: 1.7;
+}
+
+.privacy-back {
+  margin-top: 40px;
 }

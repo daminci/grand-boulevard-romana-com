@@ -185,7 +185,7 @@
       <p>
         🍪 We use cookies to ensure basic site functionality and improve your experience.
         We do not sell your data.
-        <a href="privacy.html" target="_blank">Privacy Policy</a>
+        <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
       </p>
       <div class="cookie-buttons">
         <button id="cookie-accept" onclick="acceptCookies()">Accept</button>
@@ -523,7 +523,7 @@
         <div class="neighborhood-cards">
 
           <div class="nb-card">
-            <span class="nb-card-icon">🟠</span>
+            <span>🟠</span>
             <div class="nb-card-header">
               <span class="nb-name">Mega Image</span>
               <span class="nb-rating">⭐ 4.3</span>
@@ -534,7 +534,7 @@
           </div>
 
           <div class="nb-card">
-            <span class="nb-card-icon">🟠</span>
+            <span>🟠</span>
             <div class="nb-card-header">
               <span class="nb-name">Mega Image — Piața Amzei</span>
               <span class="nb-rating">⭐ 3.8</span>
@@ -544,7 +544,7 @@
           </div>
 
           <div class="nb-card">
-            <span class="nb-card-icon">🔵</span>
+            <span>🔵</span>
             <div class="nb-card-header">
               <span class="nb-name">Carrefour Market</span>
               <span class="nb-rating">⭐ 3.8</span>
@@ -555,7 +555,7 @@
           </div>
 
           <div class="nb-card">
-            <span class="nb-card-icon">🟡</span>
+            <span>🟡</span>
             <div class="nb-card-header">
               <span class="nb-name">Berezka Deli</span>
               <span class="nb-rating">⭐ 4.6</span>
@@ -822,6 +822,15 @@
           </div>
 
           <div class="form-group">
+            <label for="name">Full Name</label>
+            <div class="field-wrap">
+              <input type="text" name="name" id="name" placeholder="Full Name" required>
+              <span class="field-icon"></span>
+              <span class="field-error" id="name-error"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
             <label for="email">Email Address</label>
             <div class="field-wrap">
               <input type="email" name="email" id="email" placeholder="Email Address" required>
@@ -834,7 +843,7 @@
             <label class="gdpr-check">
               <input type="checkbox" required name="gdpr">
               I agree to my data being used to process this booking request, in accordance with the
-              <a href="privacy.html" target="_blank">Privacy Policy</a>.
+              <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
             </label>
           </div>
           <div class="form-trust">
@@ -1220,6 +1229,16 @@
     document.getElementById('guests').addEventListener('change', () => validateGuests());
     document.getElementById('guests').addEventListener('blur', () => validateGuests(true));
 
+    // Name
+    function validateName(force = false) {
+      validateField(document.getElementById('name'), 'name-error', val => ({
+        valid: val.trim().length >= 2,
+        message: 'Please enter your full name.'
+      }), force);
+    }
+    document.getElementById('name').addEventListener('input', () => validateName());
+    document.getElementById('name').addEventListener('blur', () => validateName(true));
+
     // Email
     function validateEmail(force = false) {
       validateField(document.getElementById('email'), 'email-error', val => ({
@@ -1235,7 +1254,6 @@
     // -------------- sticky - header ------------------------
     const stickyHeader = document.getElementById('sticky-header');
     const hero = document.querySelector('h1') || document.body.firstElementChild;
-    //debugger;
     // Apare după ce utilizatorul scrollează peste hero
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -1248,7 +1266,6 @@
 
     // Scroll lin pentru toate link-urile anchor
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-      //debugger;
       link.addEventListener('click', e => {
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
@@ -1265,8 +1282,7 @@
     const stickyBar = document.getElementById('stickyBar');
     const bookSection = document.getElementById('book');
 
-    //debugger;
-    const observer1 = new IntersectionObserver((entries) => { // this was defined as a constant
+    const observer1 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         // Ascunde bara când formularul de booking este vizibil
         stickyBar.style.opacity = entry.isIntersecting ? '0' : '1';
