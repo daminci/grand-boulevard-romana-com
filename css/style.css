@@ -440,7 +440,7 @@ header.hero {
   content: "+";
   font-size: 1.4rem;
   font-weight: 300;
-  color: #888;
+  color: #767676;
   transition: transform 0.2s ease;
 }
 
@@ -482,6 +482,7 @@ header.hero {
 
 .compare-table table {
   width: 100%;
+  min-width: 540px;
   border-collapse: collapse;
   font-size: 0.95rem;
 }
@@ -497,7 +498,7 @@ header.hero {
   display: block;
   font-weight: 400;
   font-size: 0.78rem;
-  color: #888;
+  color: #767676;
   margin-top: 3px;
 }
 
@@ -637,6 +638,16 @@ header.hero {
 #cookie-decline:hover { color: #fff; border-color: #aaa; }
 #cookie-decline:focus-visible { outline: 2px solid #ccc; outline-offset: 2px; }
 
+@media (max-width: 480px) {
+  #cookie-banner {
+    padding: 14px 16px;
+  }
+  .cookie-buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
 .gdpr-check {
   display: flex;
   align-items: flex-start;
@@ -752,7 +763,7 @@ header.hero {
 /* Neighborhood Section */
 .response-time {
   font-size: 0.82rem;
-  color: #888;
+  color: #767676;
   margin-top: 8px;
   text-align: center;
 }
@@ -1051,7 +1062,7 @@ header.hero {
 
 .nb-rating {
   font-size: 0.75rem;
-  color: #888;
+  color: #767676;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -1130,7 +1141,7 @@ header.hero {
 
 .sticky-rating {
   font-size: 0.75rem;
-  color: #888;
+  color: #767676;
   display: block;
   margin-top: 1px;
 }
@@ -1154,6 +1165,11 @@ header.hero {
 @media (max-width: 768px) {
   .sticky-bar {
     display: flex;
+  }
+
+  /* Hide floating call button — sticky bar already serves as CTA on mobile */
+  .floating-call {
+    display: none;
   }
 
   /* Spațiu extra la baza paginii ca bara să nu acopere conținut */
