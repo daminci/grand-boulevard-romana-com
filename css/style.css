@@ -13,6 +13,10 @@
   --content-padding: 0 20px;
 }
 
+html {
+  scroll-padding-top: 64px;
+}
+
 *,
 *::before,
 *::after {
@@ -182,11 +186,6 @@ header.hero {
 }
 
 /* Reviews */
-
-.rating {
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
 
 .quotes blockquote {
   margin: 0 0 0.75rem;
@@ -379,6 +378,17 @@ header.hero {
   top: 1rem;
   font-size: 2rem;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  color: inherit;
+}
+
+.close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .terms-body h4 {
@@ -608,8 +618,8 @@ header.hero {
 
 #cookie-decline {
   background: transparent;
-  color: #aaa;
-  border: 1.5px solid #555;
+  color: #ccc;
+  border: 1.5px solid #777;
   padding: 9px 20px;
   border-radius: 6px;
   font-size: 0.88rem;
@@ -617,7 +627,9 @@ header.hero {
 }
 
 #cookie-accept:hover { background: #155f32; }
+#cookie-accept:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 #cookie-decline:hover { color: #fff; border-color: #aaa; }
+#cookie-decline:focus-visible { outline: 2px solid #ccc; outline-offset: 2px; }
 
 .gdpr-check {
   display: flex;
@@ -756,67 +768,6 @@ header.hero {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-}
-
-.map-links {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-}
-
-.map-links a {
-  font-size: 0.88rem;
-  color: #1a7a3f;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.map-links a:hover { text-decoration: underline; }
-
-.neighborhood-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px;
-}
-
-.neighborhood-list li {
-  padding: 14px 0;
-  border-bottom: 1px solid #f0f0f0;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  grid-template-rows: auto auto;
-  gap: 2px 12px;
-  align-items: baseline;
-}
-
-.neighborhood-list li strong {
-  font-size: 0.97rem;
-  color: #222;
-}
-
-.neighborhood-list li p {
-  grid-column: 1 / -1;
-  margin: 4px 0 0;
-  font-size: 0.85rem;
-  color: #666;
-  line-height: 1.5;
-}
-
-.distance {
-  font-size: 0.78rem;
-  background: #f0faf4;
-  color: #1a7a3f;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.rating {
-  font-size: 0.78rem;
-  color: #888;
-  white-space: nowrap;
 }
 
 .response-time {
@@ -1632,4 +1583,13 @@ header.hero {
   color: #666;
   line-height: 1.5;
   margin: 0;
+}
+
+/* Privacy page */
+
+.privacy-content {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 0 24px;
+  line-height: 1.7;
 }

@@ -12,7 +12,7 @@
   <meta property="og:title" content="Grand Boulevard Apartment – Piața Română" />
   <meta property="og:description"
     content="Modern 36 m² short-term rental apartment with direct street access in Piața Română, Bucharest. 1 minute from the metro, close to Calea Victoriei and the city center. Ideal for business travelers and couples." />
-  <meta property="og:image" content="https://grandboulevardromana.com/images/hero.png">
+  <meta property="og:image" content="https://grandboulevardromana.com/images/icons/hero.png">
   <meta property="og:url" content="https://grandboulevardromana.com/" />
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="css/style.css" />
@@ -49,7 +49,6 @@
           "latitude": 44.448678330058826, 
           "longitude": 26.09423111289104
         },
-        /* UPDATE MANUALLY: sync ratingValue and reviewCount with Booking.com / Airbnb when ratings change */
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "9.5",
@@ -376,17 +375,17 @@
 
         </div>
 
-        <button class="slider-btn prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
-        <button class="slider-btn next" id="nextBtn" aria-label="Next photo">&#8594;</button>
+        <button type="button" class="slider-btn prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
+        <button type="button" class="slider-btn next" id="nextBtn" aria-label="Next photo">&#8594;</button>
         <div class="slider-dots" id="sliderDots"></div>
         <div class="slider-counter" id="sliderCounter">1 / 12</div>
       </div>
 
       <!-- Lightbox -->
       <div class="lightbox" id="lightbox">
-        <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-        <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8592;</button>
-        <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8594;</button>
+        <button type="button" class="lb-close" id="lbClose" aria-label="Close">✕</button>
+        <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8592;</button>
+        <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8594;</button>
         <div class="lb-img-wrap">
           <img id="lbImg" src="" alt="">
           <span class="lb-caption" id="lbCaption"></span>
@@ -895,17 +894,18 @@
       </div>
 
       <div class="footer-section">
-        <button type="button" class="btn-outline"
-          onclick="document.getElementById('terms-modal').style.display='block'">
+        <button type="button" class="btn-outline" id="terms-trigger"
+          onclick="openTermsModal()">
           Terms & House Rules
         </button>
+        <a href="privacy.html" class="btn-outline">Privacy Policy</a>
       </div>
     </div>
   </footer>
 
   <div id="terms-modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="document.getElementById('terms-modal').style.display='none'">&times;</span>
+      <button type="button" class="close" onclick="closeTermsModal()" aria-label="Close">&times;</button>
       <h2>Terms & House Rules</h2>
       <div class="terms-body">
         <h4>🚭 No Smoking</h4>
@@ -1016,9 +1016,22 @@
       }
     });
 
+    const termsModal = document.getElementById('terms-modal');
+    const termsTrigger = document.getElementById('terms-trigger');
+
+    function openTermsModal() {
+      termsModal.style.display = 'block';
+      termsModal.querySelector('.close').focus();
+    }
+
+    function closeTermsModal() {
+      termsModal.style.display = 'none';
+      termsTrigger.focus();
+    }
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === "Escape") {
-        document.getElementById("terms-modal").style.display = "none";
+      if (e.key === 'Escape' && termsModal.style.display === 'block') {
+        closeTermsModal();
       }
     });
   </script>
@@ -1159,8 +1172,6 @@
 
   <script>
     // Validare în timp real
-    const today1 = getLocalDateString();
-
     function validateField(input, errorId, validator, force = false) {
       const error = document.getElementById(errorId);
       const { valid, message } = validator(input.value);
