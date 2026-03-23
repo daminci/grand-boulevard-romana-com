@@ -219,9 +219,9 @@
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <h1>Grand Boulevard Apartment – Piața Română</h1>
-      <p class="hero-tagline">A bright, modern 36 m² apartment with direct street access, steps from Metro Piața Română.
-      </p>
+      <h1>Stay in Central Bucharest — 1 Minute from Piața Română Metro</h1>
+      <p class="hero-tagline">Bright, modern apartment with direct street access, fast Wi-Fi, and top-rated guest
+        reviews.</p>
       <p class="hero-featured-review">⭐ 9.5 · “Perfect location and spotless apartment”</p>
       <p class="hero-meta">36 m² &nbsp;·&nbsp; 1 Bedroom &nbsp;·&nbsp; City‑center Bucharest</p>
       <a href="#book" class="hero-cta">Book Now — From €60 / night</a>
@@ -765,6 +765,10 @@
           </tbody>
         </table>
       </div>
+
+      <div class="why-direct-cta">
+        <a href="#book" class="btn-primary">Check Availability — Save 12–18%</a>
+      </div>
     </section>
 
     <!-- About the Host -->
@@ -1281,6 +1285,7 @@
     // -------------- sticky - header ------------------------
     const stickyHeader = document.getElementById('sticky-header');
     const hero = document.querySelector('h1') || document.body.firstElementChild;
+    const stickyNavLinks = Array.from(document.querySelectorAll('.sticky-nav a'));
     // Apare după ce utilizatorul scrollează peste hero
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -1290,6 +1295,46 @@
     );
 
     observer.observe(hero);
+
+    const linkedSections = stickyNavLinks
+      .map(link => ({
+        link,
+        section: document.querySelector(link.getAttribute('href'))
+      }))
+      .filter(item => item.section);
+
+    function setActiveStickyLink(activeId) {
+      stickyNavLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveStickyLink(visibleEntries[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-35% 0px -45% 0px',
+        threshold: [0.2, 0.35, 0.5]
+      }
+    );
+
+    linkedSections.forEach(({ section }) => sectionObserver.observe(section));
+    if (linkedSections[0]) {
+      setActiveStickyLink(linkedSections[0].section.id);
+    }
 
     // Scroll lin pentru toate link-urile anchor
     document.querySelectorAll('a[href^="#"]').forEach(link => {

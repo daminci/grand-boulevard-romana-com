@@ -534,6 +534,14 @@ header.hero {
   background: #fafafa;
 }
 
+.why-direct-cta {
+  margin-top: 24px;
+}
+
+.why-direct-cta .btn-primary {
+  min-width: min(100%, 320px);
+}
+
 /* Trust Badges */
 #trust-badges {
   max-width: 720px;
@@ -977,10 +985,16 @@ header.hero {
   color: #555;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: 999px;
+  padding: 6px 10px;
 }
 
 .sticky-nav a:hover { color: #111; }
+.sticky-nav a.active {
+  color: #111;
+  background: rgba(26,122,63,0.12);
+}
 .sticky-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 .sticky-cta {
