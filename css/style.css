@@ -567,6 +567,20 @@ header.hero {
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
+.badge-link {
+  text-decoration: none;
+}
+
+.badge-link:hover {
+  border-color: #cfe3d5;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.badge-link:focus-visible {
+  outline: 2px solid #1a7a3f;
+  outline-offset: 3px;
+}
+
 .badge-icon {
   font-size: 1.1rem;
 }
@@ -1487,6 +1501,21 @@ header.hero {
   margin: 0;
 }
 
+.hero-featured-review {
+  margin: 0;
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background: rgba(17,17,17,0.28);
+  color: rgba(255,255,255,0.96);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
 .hero-cta {
   display: inline-block;
   background: #1a7a3f;
@@ -1524,6 +1553,11 @@ header.hero {
     width: 100%;
     text-align: center;
     padding: 16px 24px;
+  }
+
+  .hero-featured-review {
+    font-size: 0.88rem;
+    padding: 10px 14px;
   }
 }
 
