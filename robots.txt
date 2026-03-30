@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://daminci.github.io/grand-boulevard-romana-com/sitemap.xml
+Sitemap: https://grandboulevardromana.com/sitemap.xml
